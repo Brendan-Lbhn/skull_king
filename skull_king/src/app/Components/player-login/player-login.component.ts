@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild, viewChild} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {GameService} from "../../Services/GameService/game.service";
 import {Player} from "../../Models/player";
