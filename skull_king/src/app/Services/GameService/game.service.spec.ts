@@ -14,7 +14,4 @@ describe('GameServiceService', () => {
     expect(service).toBeTruthy();
   });
 
-  if(){
-    
-  }
 });
