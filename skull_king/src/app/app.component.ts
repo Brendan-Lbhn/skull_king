@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { GameServiceService as GameService } from './Services/GameService/game-service.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,8 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.less'
 })
 export class AppComponent {
-  title = 'skull_king';
+
+  constructor(gameService: GameService){
+    gameService.initDeck()
+  }
 }
