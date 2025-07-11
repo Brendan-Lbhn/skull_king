@@ -38,16 +38,11 @@ export class PlayerLoginComponent {
       if (typeof token !== 'undefined'){
         this.gameService.players.push(new Player(token, this.pseudo));
         if (this.gameService.players.length === 1){
-          sessionStorage.setItem('idplayer', token.toString())
+          sessionStorage.setItem('idPlayer', token.toString())
         }
         this.pseudo = '';
         this.pseudoInputElement.nativeElement.focus();
-      }else{
-
       }
-
-
-
     }
   }
 }
