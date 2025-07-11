@@ -1,0 +1,12 @@
+<div id="login" *ngIf="showPopin">
+  <p>Yo Ho Ho !</p>
+  <h1>Quel est ton nom pirate ?</h1>
+  <input type="text" name="pseudo" id="pseudo" #pseudoInputElement [(ngModel)]="pseudo">
+  <div id="buttons">
+    <input type="button" value="validate" (click)="addPlayerAndValidateForm()" autocomplete="off">
+    <div *ngIf="gameService.players.length < 8; then notMaxPlayers else maxPlayers"></div>
+    <ng-template #notMaxPlayers><input  type="button" value="insertNew" (click)="addPlayer()"></ng-template>
+    <ng-template #maxPlayers><p >Nb max de joueurs atteint !</p></ng-template>
+  </div>
+</div>
+<p *ngFor=" let player of gameService.players">{{player.pseudo}}</p>
