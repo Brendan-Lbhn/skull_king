@@ -2,15 +2,13 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {GameService} from "../../Services/GameService/game.service";
 import {Player} from "../../Models/player";
-import {NgForOf, NgIf} from "@angular/common";
+
 
 @Component({
     selector: 'app-player-login',
     imports: [
-        FormsModule,
-        NgForOf,
-        NgIf,
-    ],
+    FormsModule
+],
     templateUrl: './player-login.component.html',
     styleUrl: './player-login.component.less'
 })

@@ -1,8 +1,9 @@
-<div *ngFor="let card of playersDeck">
-  <div class="card">
-    <div class="top-left-card">{{card.value}}</div>
-    <div class="center card">{{card.id}}</div>
-    <div class="bottom-right-card">{{card.value}}</div>
+@for (card of playersDeck; track card) {
+  <div>
+    <div class="card">
+      <div class="top-left-card">{{card.value}}</div>
+      <div class="center card">{{card.id}}</div>
+      <div class="bottom-right-card">{{card.value}}</div>
+    </div>
   </div>
-
-</div>
+}

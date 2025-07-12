@@ -1,13 +1,11 @@
 import {Component} from '@angular/core';
 import {Card} from '../../Models/card';
 import {GameService} from '../../Services/GameService/game.service';
-import {NgForOf} from "@angular/common";
+
 
 @Component({
     selector: 'app-player-cards',
-    imports: [
-        NgForOf
-    ],
+    imports: [],
     templateUrl: './player-cards.component.html',
     styleUrl: './player-cards.component.less'
 })
