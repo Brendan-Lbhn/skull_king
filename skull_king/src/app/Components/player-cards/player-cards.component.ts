@@ -4,13 +4,12 @@ import {GameService} from '../../Services/GameService/game.service';
 import {NgForOf} from "@angular/common";
 
 @Component({
-  selector: 'app-player-cards',
-  standalone: true,
-  imports: [
-    NgForOf
-  ],
-  templateUrl: './player-cards.component.html',
-  styleUrl: './player-cards.component.less'
+    selector: 'app-player-cards',
+    imports: [
+        NgForOf
+    ],
+    templateUrl: './player-cards.component.html',
+    styleUrl: './player-cards.component.less'
 })
 export class PlayerCardsComponent {
   playerId: string = '';

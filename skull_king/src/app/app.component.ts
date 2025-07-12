@@ -5,11 +5,10 @@ import {PlayerLoginComponent} from "./Components/player-login/player-login.compo
 import { PlayerCardsComponent } from './Components/player-cards/player-cards.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, PlayerLoginComponent, PlayerCardsComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.less'
+    selector: 'app-root',
+    imports: [RouterOutlet, PlayerLoginComponent, PlayerCardsComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.less'
 })
 export class AppComponent {
 

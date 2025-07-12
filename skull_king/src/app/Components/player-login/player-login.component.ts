@@ -5,15 +5,14 @@ import {Player} from "../../Models/player";
 import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-player-login',
-  standalone: true,
-  imports: [
-    FormsModule,
-    NgForOf,
-    NgIf,
-  ],
-  templateUrl: './player-login.component.html',
-  styleUrl: './player-login.component.less'
+    selector: 'app-player-login',
+    imports: [
+        FormsModule,
+        NgForOf,
+        NgIf,
+    ],
+    templateUrl: './player-login.component.html',
+    styleUrl: './player-login.component.less'
 })
 export class PlayerLoginComponent {
   pseudo: string = '';
