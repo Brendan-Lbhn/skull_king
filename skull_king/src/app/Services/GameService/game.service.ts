@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../../Models/card';
 import {Player} from "../../Models/player";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -8,20 +9,38 @@ import {Player} from "../../Models/player";
 export class GameService {
   deck: Card[] = [];
   players: Player[] = [];
-  round: number = 1;
+  playedCards: Card[] = [];
+  activePLayer: Player | undefined = undefined;
+  round: number = 0;
 
   constructor() { }
 
+  private gameReadySubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  gameReady$ = this.gameReadySubject.asObservable();
+
+  //Distribue les cartes aux différents joueurs
   dealCards(){
+    this.round++;
+    this.setActivePlayer();
     for(let i:number = 0; i < this.round; i++){
       this.players.forEach((player) => {
         const randomNumber = Math.floor(Math.random() * 74);
         player.hand.push(this.deck[randomNumber])
         this.deck.splice(randomNumber, 1)
+        this.gameReadySubject.next(true);
       })
     }
   }
 
+  setActivePlayer(){
+    if(typeof this.activePLayer === 'undefined' || this.activePLayer.id === this.players.length ){
+      this.activePLayer = this.players[0];
+    }else{
+      this.activePLayer = this.players[this.activePLayer.id + 1];
+    }
+  }
+
+  //Intialise le jeu de 74 cartes
   initDeck(){
     let piratesNames: string[] = ['rosie', 'juanita', 'will', 'rascal', 'harry'];
     let mermaidsNames: string[]=  ['circé','alyra'];
