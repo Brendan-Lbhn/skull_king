@@ -1,32 +1,38 @@
-import { Component } from '@angular/core';
-import { Card } from '../../Models/card';
-import { GameService } from '../../Services/GameService/game.service';
+import {Component} from '@angular/core';
+import {Card} from '../../Models/card';
+import {GameService} from '../../Services/GameService/game.service';
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-player-cards',
   standalone: true,
-  imports: [],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './player-cards.component.html',
   styleUrl: './player-cards.component.less'
 })
 export class PlayerCardsComponent {
   playerId: string = '';
-  playersDeck: Card[] = [];
+  playersDeck: Card[] | undefined = [];
+
 
   constructor(public gameService: GameService) {
 
   }
 
-  setPlayerId() {
-    let sessionStoragePlayerId = sessionStorage.getItem('idPlayer');
-    if (typeof sessionStoragePlayerId !== 'undefined' && sessionStoragePlayerId !== null) {
-      this.playerId = sessionStoragePlayerId;
-
-    }
+  ngOnInit(){
+    // On s'abonne à un flux de la classe GameService
+    this.gameService.gameReady$.subscribe(ready=>{
+      if(ready){
+        this.showPlayersDeck()
+      }
+    })
   }
 
-  setPlayersCards() {
-    this.gameService.players.find((element) => element.id = parseInt(this.playerId))?.hand
+  showPlayersDeck() {
+    const idPlayer: string = sessionStorage.getItem('idPlayer') ?? '';
+      this.playersDeck = this.gameService.players.find((player) => player.id === parseInt(idPlayer))?.hand;
   }
 
 
