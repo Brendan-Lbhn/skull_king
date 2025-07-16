@@ -11,5 +11,12 @@ export class Player{
     this.pseudo = pseudo;
   }
 
+  toJSON(){
+    return{
+      id: this.id,
+      pseudo: this.pseudo
+    }
+  }
+
 
 }

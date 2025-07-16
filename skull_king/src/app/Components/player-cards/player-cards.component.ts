@@ -4,6 +4,7 @@ import {GameService} from '../../Services/GameService/game.service';
 
 
 @Component({
+    standalone: true,
     selector: 'app-player-cards',
     imports: [],
     templateUrl: './player-cards.component.html',
